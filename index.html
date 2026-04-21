@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CarMigos Car Accessories - Upgrade Your Ride">
+    <title>CarMigos | Premium Car Accessories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Ionicons for modern icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/carmigos-logo.jpg" alt="CarMigos Logo" class="logo-img">
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn"><ion-icon name="search-outline"></ion-icon></button>
+                <div class="cart-wrapper">
+                    <button class="icon-btn" id="cart-btn"><ion-icon name="cart-outline"></ion-icon></button>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="animate-up">WELCOME TO<br><span class="accent">CARMIGOS.</span></h1>
+                <p class="animate-up delay-1">Premium performance parts and custom aesthetics for the modern automotive enthusiast.</p>
+                <div class="hero-btns animate-up delay-2">
+                    <a href="#shop" class="btn btn-primary">Explore Catalog <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    <a href="#categories" class="btn btn-secondary">Shop Categories</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper animate-scale delay-2">
+                <img src="assets/carmigos-logo.jpg" alt="CarMigos Heroes" class="hero-main-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="cat-card">
+                    <div class="cat-icon"><ion-icon name="bulb-outline"></ion-icon></div>
+                    <h3>Illumination</h3>
+                    <p>Neon, LED kits</p>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><ion-icon name="speedometer-outline"></ion-icon></div>
+                    <h3>Performance</h3>
+                    <p>Brakes, Engine parts</p>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+                    <h3>Exterior</h3>
+                    <p>Wheels, Spoilers</p>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><ion-icon name="car-sport-outline"></ion-icon></div>
+                    <h3>Interior</h3>
+                    <p>Seats, Steering</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="shop section" id="shop">
+        <div class="container">
+            <div class="shop-header">
+                <h2 class="section-title">Trending Parts</h2>
+                <a href="#" class="view-all">View All <ion-icon name="chevron-forward-outline"></ion-icon></a>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo section">
+        <div class="container">
+            <div class="promo-box">
+                <div class="promo-content">
+                    <h2>Next-Gen Customization</h2>
+                    <p>Transform your vehicle into a masterpiece.</p>
+                    <a href="#shop" class="btn btn-primary">Start Building</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="assets/carmigos-logo.jpg" alt="CarMigos Logo" class="logo-img">
+                </a>
+                <p>The premier destination for high-end automotive modifications and accessories. Built for enthusiasts, by enthusiasts.</p>
+                <div class="socials">
+                    <a href="#" class="social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#" class="social-icon"><ion-icon name="logo-youtube"></ion-icon></a>
+                    <a href="#" class="social-icon"><ion-icon name="logo-tiktok"></ion-icon></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Warranty</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe for exclusive drops, build tips, and 10% off your first order.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary"><ion-icon name="paper-plane-outline"></ion-icon></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 CarMigos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

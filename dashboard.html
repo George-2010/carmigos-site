@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarMigos Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background-color: var(--bg-secondary); padding: 50px 20px; }
+        .admin-logo { text-align: center; margin-bottom: 30px; }
+        .admin-logo img { width: 150px; border-radius: 8px; mix-blend-mode: multiply; margin: 0 auto; }
+        .admin-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .message { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; text-align: center; font-weight: 600; }
+        .success { background: #dcfce7; color: #166534; display: block; }
+        .error { background: #fee2e2; color: #991b1b; display: block; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-logo">
+            <img src="assets/carmigos-logo.jpg" alt="CarMigos">
+            <h2>Admin Dashboard</h2>
+        </div>
+        <form id="addProductForm">
+            <div class="form-group">
+                <label>Product Title</label>
+                <input type="text" id="title" class="form-control" required placeholder="e.g., Pink Neon Car Underglow">
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="category" class="form-control" required>
+                    <option value="Exterior">Exterior</option>
+                    <option value="Interior">Interior</option>
+                    <option value="Illumination">Illumination</option>
+                    <option value="Performance">Performance</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Price ($)</label>
+                <input type="number" step="0.01" id="price" class="form-control" required placeholder="99.99">
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="text" id="image" class="form-control" placeholder="https://..." required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">Add Product to Live Site</button>
+        </form>
+        <div id="statusMessage" class="message"></div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/" target="_blank" style="color: var(--accent-red); font-weight: 600;">View Live Site &rarr;</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Publishing...';
+            
+            const payload = {
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                price: parseFloat(document.getElementById('price').value),
+                image: document.getElementById('image').value
+            };
+
+            const status = document.getElementById('statusMessage');
+            try {
+                const res = await fetch('/api/products', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if(res.ok) {
+                    status.className = 'message success';
+                    status.textContent = 'Awesome! Product is now LIVE on your website.';
+                    e.target.reset();
+                } else {
+                    throw new Error('Failed to add product');
+                }
+            } catch(err) {
+                status.className = 'message error';
+                status.textContent = 'Error adding product.';
+            } finally {
+                btn.innerText = originalText;
+            }
+        });
+    </script>
+</body>
+</html>
